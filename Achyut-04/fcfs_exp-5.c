@@ -28,7 +28,7 @@ int main()
     printf("Process %d: ", i + 1);
     scanf("%d", &p[i].bt);
   }
-//sort
+//sorting according to the arrival time
   for (int i = 0; i < n - 1; i++)
   {
     for (int j = i + 1; j < n; j++)
