@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 
 typedef struct
@@ -51,16 +52,16 @@ int main()
           min_bt = p[i].remaining_bt;
           idx = i;
         }
-        else if (p[i].remaining_bt == min_bt && p[i].at < p[idx].at)
+        if (p[i].remaining_bt == min_bt && p[i].at < p[idx].at)
         {
-          idx = i; // tie breaker: earlier arrival
+          idx = i;
         }
       }
     }
 
     if (idx != -1)
     {
-      if (prev != idx) // context switch
+      if (prev != idx)
       {
         if (prev != -1)
         {
@@ -88,7 +89,7 @@ int main()
     }
     else
     {
-      curr_time++; // idle time
+      curr_time++;
     }
   }
 
@@ -102,7 +103,7 @@ int main()
            exec_order[i][0], exec_order[i][1], exec_order[i][2]);
   }
 
-  // Final table in execution order
+  // Final table arranged according to execution
   printf("\nFinal Table (in execution order):\n");
   printf("Process\tArrival\tBurst\tWaiting\tTurnaround\tCompletion\n");
   int printed[100] = {0};
