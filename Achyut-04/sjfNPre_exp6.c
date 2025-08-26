@@ -91,6 +91,22 @@ int main()
            exec_order[i][0], exec_order[i][1], exec_order[i][2]);
   }
 
+  // Print Gantt chart
+  printf("\nGantt Chart:\n|");
+  for (int i = 0; i < log_index; i++)
+  {
+    printf("  P%d  |", exec_order[i][2]);
+  }
+  printf("\n");
+
+  // Time scale
+  printf("%d", exec_order[0][0]);
+  for (int i = 0; i < log_index; i++)
+  {
+    printf("      %d", exec_order[i][1]);
+  }
+  printf("\n");
+
   // Final table
   printf("\nFinal Table:\n");
   printf("Process\tArrival\tBurst\tWaiting\tTurnaround\tCompletion\n");

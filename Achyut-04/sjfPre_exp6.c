@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 
 typedef struct
@@ -36,7 +35,7 @@ int main()
   for (int i = 0; i < n; i++)
     is_completed[i] = 0;
 
-  // Execution order log
+  // Execution order log for Gantt chart
   int exec_order[100][3]; // {start_time, end_time, pid}
   int log_index = 0;
 
@@ -61,7 +60,7 @@ int main()
 
     if (idx != -1)
     {
-      if (prev != idx)
+      if (prev != idx) // context switch
       {
         if (prev != -1)
         {
@@ -89,7 +88,7 @@ int main()
     }
     else
     {
-      curr_time++;
+      curr_time++; // idle
     }
   }
 
@@ -103,7 +102,23 @@ int main()
            exec_order[i][0], exec_order[i][1], exec_order[i][2]);
   }
 
-  // Final table arranged according to execution
+  // Print Gantt chart
+  printf("\nGantt Chart:\n|");
+  for (int i = 0; i < log_index; i++)
+  {
+    printf("  P%d  |", exec_order[i][2]);
+  }
+  printf("\n");
+
+  // Time scale for Gantt chart
+  printf("%d", exec_order[0][0]);
+  for (int i = 0; i < log_index; i++)
+  {
+    printf("      %d", exec_order[i][1]);
+  }
+  printf("\n");
+
+  // Final table
   printf("\nFinal Table (in execution order):\n");
   printf("Process\tArrival\tBurst\tWaiting\tTurnaround\tCompletion\n");
   int printed[100] = {0};
