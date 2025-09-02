@@ -6,7 +6,7 @@ int main()
 {
     printf("\n\t\t\t\t\tNAME: ACHYUT SHEKHAR SINGH | SECTION: C (G1) | ROLL NUMBER: 04\n");
     printf(" P1: Demonstration of FORK() System Call\n");
-    printf(" NAME: AYUSH RAMOLA | SECTION: C (G1) | ROLL NUMBER: 17\n\n");
+  
     pid_t processID = fork();
     if (processID == 0)
     {

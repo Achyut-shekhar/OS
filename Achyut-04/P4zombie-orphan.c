@@ -7,7 +7,7 @@ int main()
 {
     printf("\n\t\t\t\t\tNAME: ACHYUT SHEKHAR SINGH | SECTION: C (G1) | ROLL NUMBER: 04\n");
     printf(" P4: Demonstration of Zombie and Orphan Processes\n");
-    printf(" NAME: AYUSH RAMOLA | SECTION: C (G1) | ROLL NUMBER: 17\n\n");
+  
     pid_t zombie_pid = fork();
     if (zombie_pid > 0)
     {

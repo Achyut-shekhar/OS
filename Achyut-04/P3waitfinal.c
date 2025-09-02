@@ -8,7 +8,7 @@
 int main(){
     printf("\n\t\t\t\t\tNAME: ACHYUT SHEKHAR SINGH | SECTION: C (G1) | ROLL NUMBER: 04\n");
     printf(" P3: Demonstration of WAIT() System Call\n\n");
-    printf(" NAME: AYUSH RAMOLA | SECTION: C (G1) | ROLL NUMBER: 17\n\n");
+  
     pid_t child_pid;
     child_pid = fork();
     if(child_pid == 0){

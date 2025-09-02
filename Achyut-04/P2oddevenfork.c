@@ -5,7 +5,7 @@
 int main(){
     printf("\n\t\t\t\t\tNAME: ACHYUT SHEKHAR SINGH | SECTION: C (G1) | ROLL NUMBER: 04\n");
     printf(" P2: Parent Process Computes the SUM OF EVEN and Child\n Process Computes the sum of ODD NUMBERS using fork\n\n");
-    printf(" NAME: AYUSH RAMOLA | SECTION: C (G1) | ROLL NUMBER: 17\n\n");
+   
     int n;
     printf(" Enter the size of the array: ");
     scanf("%d", &n);
