@@ -7,13 +7,14 @@ typedef struct
 
 int main()
 {
+  printf("\n\t\t\t\t\tNAME: ACHYUT SHEKHAR SINGH | SECTION: C (G1) | ROLL NUMBER: 04\n");
+
   int n;
   printf("Input number of processes: ");
   scanf("%d", &n);
 
   Process p[n];
   float total_wt = 0, total_tat = 0;
-
   printf("Input arrival times:\n");
   for (int i = 0; i < n; i++)
   {
@@ -28,7 +29,7 @@ int main()
     printf("Process %d: ", i + 1);
     scanf("%d", &p[i].bt);
   }
-//sorting according to the arrival time
+  // sorting according to the arrival time
   for (int i = 0; i < n - 1; i++)
   {
     for (int j = i + 1; j < n; j++)
@@ -41,11 +42,11 @@ int main()
       }
     }
   }
-//calculating waiting time turnaround time and completion time
+  // calculating waiting time turnaround time and completion time
   int time = 0;
   for (int i = 0; i < n; i++)
   {
-    if (time < p[i].at) 
+    if (time < p[i].at)
       time = p[i].at;
     p[i].wt = time - p[i].at;
     p[i].ct = time + p[i].bt;

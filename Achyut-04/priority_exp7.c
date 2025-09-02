@@ -154,6 +154,8 @@ void printResults(Process p[], int n)
 // ================= Main =================
 int main()
 {
+  printf("\n\t\t\t\t\tNAME: ACHYUT SHEKHAR SINGH | SECTION: C (G1) | ROLL NUMBER: 04\n");
+
   int n, choice;
   printf("Enter number of processes: ");
   scanf("%d", &n);

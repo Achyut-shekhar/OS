@@ -7,6 +7,8 @@ typedef struct
 
 int main()
 {
+
+  printf("\n\t\t\t\t\tNAME: ACHYUT SHEKHAR SINGH | SECTION: C (G1) | ROLL NUMBER: 04\n");
   int n;
   printf("Input number of processes: ");
   scanf("%d", &n);
