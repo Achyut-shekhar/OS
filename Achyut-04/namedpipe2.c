@@ -6,6 +6,7 @@
 
 int main()
 {
+    printf("\n\t\t\t\t\tNAME: ACHYUT SHEKHAR SINGH | SECTION: C (G1) | ROLL NUMBER: 04\n");
     int fd;
     char *myfifo = "/tmp/myfifo";
     mkfifo(myfifo, 0666);
