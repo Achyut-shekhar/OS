@@ -17,8 +17,7 @@ int main()
     while (1)
     {
         fd = open(myfifo, O_RDONLY);
-        bytesRead = read(fd, str1, 80);
-        printf("User1: %s", str1);
+        bytesRead = read(fd, str1, 80);       printf("User1: %s", str1);
         printf("Bytes read: %d\n", bytesRead);
         close(fd);
 
