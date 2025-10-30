@@ -10,8 +10,7 @@ int main()
 {
     int shmid;
     char *shared_memory;
-    printf("Name: Achyut Shekhar Singh  \n");
-    printf("Roll no.: 17 \n");
+    printf("\n\t\t\t\t\tNAME: ACHYUT SHEKHAR SINGH | SECTION: C (G1) | ROLL NUMBER: 04\n");
     key_t Key = ftok("shmfile.txt", 65);
     if (Key == -1)
     {
