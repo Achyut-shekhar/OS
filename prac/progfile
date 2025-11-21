@@ -1,0 +1,1 @@
+This file is used by ftok() to generate a unique key for message queue.

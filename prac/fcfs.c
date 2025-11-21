@@ -2,46 +2,82 @@
 
 typedef struct
 {
-  int pid;
-  int bt;
-  int at;
-  int wt;
-  int ct;
-  int tat;
-  
-
+  int pid; // process id
+  int bt;  // burst time
+  int at;  // arrival time
+  int wt;  // waiting time
+  int ct;  // completion time
+  int tat; // turn around time
 } Process;
 
 int main()
 {
-  int n, i, total_wt = 0, total_tat = 0;
+  int n, i, j;
+  float total_wt = 0, total_tat = 0;
 
-  printf("input no. of proces ");
+  printf("Input no. of processes: ");
   scanf("%d", &n);
-  Process p[n];
-  int completed = 0, curr_time = 0;
-  int is_completed[n];
 
+  Process p[n];
+
+  // Input
   for (i = 0; i < n; i++)
   {
-    printf("enter pid");
+    printf("\nEnter PID for process %d: ", i + 1);
     scanf("%d", &p[i].pid);
-    printf("enter bt");
+
+    printf("Enter Burst Time (BT) for P%d: ", p[i].pid);
     scanf("%d", &p[i].bt);
 
-    printf("enter at");
+    printf("Enter Arrival Time (AT) for P%d: ", p[i].pid);
     scanf("%d", &p[i].at);
 
-    is_completed[i] = 0;
+    p[i].wt = p[i].ct = p[i].tat = 0;
   }
 
+  // Sort by Arrival Time (AT) for FCFS
+  for (i = 0; i < n - 1; i++)
+  {
+    for (j = i + 1; j < n; j++)
+    {
+      if (p[j].at < p[i].at)
+      {
+        Process temp = p[i];
+        p[i] = p[j];
+        p[j] = temp;
+      }
+    }
+  }
 
+  int curr_time = 0;
 
-  printf("pid\tbt\tat\tct\ttat\twt\n");
+  // FCFS Scheduling
   for (i = 0; i < n; i++)
   {
-    printf("%d\t%d\t%d\t%d\t%d\t%d\n", p[i].pid, p[i].bt, p[i].at, p[i].ct, p[i].tat, p[i].wt);
+    // If CPU is idle, jump time to this process's arrival
+    if (curr_time < p[i].at)
+      curr_time = p[i].at;
+
+    curr_time += p[i].bt;
+    p[i].ct = curr_time;          // Completion Time
+    p[i].tat = p[i].ct - p[i].at; // Turnaround Time
+    p[i].wt = p[i].tat - p[i].bt; // Waiting Time
+
+    total_tat += p[i].tat;
+    total_wt += p[i].wt;
   }
-  printf("average tat = %f\n", (float)total_tat / n);
-  printf("average wt = %f\n", (float)total_wt / n);
+
+  // Output
+  printf("\nPID\tBT\tAT\tCT\tTAT\tWT\n");
+  for (i = 0; i < n; i++)
+  {
+    printf("%d\t%d\t%d\t%d\t%d\t%d\n",
+           p[i].pid, p[i].bt, p[i].at,
+           p[i].ct, p[i].tat, p[i].wt);
+  }
+
+  printf("\nAverage TAT = %.2f\n", total_tat / n);
+  printf("Average WT  = %.2f\n", total_wt / n);
+
+  return 0;
 }
